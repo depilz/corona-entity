@@ -53,7 +53,7 @@ function Entity:setPosition(x, y, params)
 end
 
 
-function Entity:move(x, y)
+function Entity:move(x, y, params)
   if params then
     params.tag = params.tag or self.id
     params.x   = self.group.x + x
@@ -212,8 +212,15 @@ function Entity:isVisible()
 end
 
 
-function Entity:setScale(scale)
-  self.group.xScale, self.group.yScale = scale*self._direction, scale
+function Entity:scale(scale, params)
+  if params then
+    params.tag   = params.tag or self.id
+    params.xScale = scale
+    params.yScale = scale
+    transition.to(self.group, params)
+  else
+    self.group.xScale, self.group.yScale = scale*self._direction, scale
+  end
 end
 
 

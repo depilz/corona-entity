@@ -26,7 +26,7 @@ myEntity:move(60, 60, {
   iterations = -1,
   transition = easing.inOutQuad
 })
-myEntity:scale(.01, {
+myEntity:setScale(.01, {
   time       = 10000,
   iterations = -1,
   transition = easing.inQuad

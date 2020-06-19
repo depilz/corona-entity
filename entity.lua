@@ -252,8 +252,15 @@ function Entity:getYScale()
 end
 
 
-function Entity:setScale(scale)
- self.group.xScale, self.group.yScale = scale*self._direction, scale
+function Entity:setScale(scale, params)
+  if params then
+    params.tag   = params.tag or self.id
+    params.xScale = scale
+    params.yScale = scale
+    transition.to(self.group, params)
+  else
+    self.group.xScale, self.group.yScale = scale*self._direction, scale
+  end
 end
 
 

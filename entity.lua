@@ -97,10 +97,7 @@ end
 function Entity:getPosition(anchorX, anchorY, world)
  assert(self.group.y, (tostring(self) or "UNKNOWN")..": operation over a removed object")
 
- world = world or self._inGameElement and _G.game.currentScene and _G.game.currentScene.environment.battleField
-
  local x, y = self.group:localToContent(self:getInnerPoint(anchorX, anchorY))
-
  if world then
    return (world.group or world):contentToLocal(x, y)
  else

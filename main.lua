@@ -4,12 +4,6 @@
 _G.screen   = require("Libs.screen")
 _G.Class    = require("Libs.middleclass")
 
-local idCounter = 0
-function _G.generateID(object)
-  idCounter = idCounter+1
-  return object.."_"..idCounter
-end
-
 ------------------------------------------------------------------------------------------------------------------------
 -- PLUGINS --
 ------------------------------------------------------------------------------------------------------------------------
